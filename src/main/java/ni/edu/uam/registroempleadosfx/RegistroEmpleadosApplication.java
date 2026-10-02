@@ -12,7 +12,7 @@ public class RegistroEmpleadosApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("empleado-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 800);
         scene.getStylesheets().add(
                 Objects.requireNonNull(getClass().getResource("/ni/edu/uam/registroempleadosfx/estilos/estilos.css")).toExternalForm()
         );
