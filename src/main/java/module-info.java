@@ -3,7 +3,10 @@ module ni.edu.uam.registroempleadosfx {
     requires javafx.fxml;
     requires java.sql;
 
+    opens ni.edu.uam.registroempleadosfx.model to javafx.base;
 
+    exports ni.edu.uam.registroempleadosfx.controller to javafx.fxml;
+    opens ni.edu.uam.registroempleadosfx.controller to javafx.fxml;
     opens ni.edu.uam.registroempleadosfx to javafx.fxml;
     exports ni.edu.uam.registroempleadosfx;
 }
