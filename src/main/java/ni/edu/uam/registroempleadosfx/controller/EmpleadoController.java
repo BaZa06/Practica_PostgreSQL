@@ -221,8 +221,9 @@ public class EmpleadoController {
             ex.printStackTrace();
             mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
         }
+    }
 
-    public void clickConsulta2(ActionEvent actionEvent){
+    public void clickConsulta2(ActionEvent actionEvent) {
         empleados.clear();
         String sql = "SELECT * FROM empleado WHERE departamento = 'Tecnologia'";
 
@@ -252,7 +253,8 @@ public class EmpleadoController {
             mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
         }
 
-    public void clickConsulta3(ActionEvent actionEvent){
+    }
+    public void clickConsulta3(ActionEvent actionEvent) {
         empleados.clear();
         String sql = "SELECT * FROM empleado WHERE salario > 55000";
 
@@ -281,6 +283,7 @@ public class EmpleadoController {
             ex.printStackTrace();
             mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
         }
+    }
 
     public void clickConsulta4(ActionEvent actionEvent) {
         empleados.clear();
@@ -311,6 +314,7 @@ public class EmpleadoController {
             ex.printStackTrace();
             mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
         }
+    }
 
     public void clickConsulta5(ActionEvent actionEvent) {
         empleados.clear();
@@ -345,3 +349,4 @@ public class EmpleadoController {
 
 
     }
+}
