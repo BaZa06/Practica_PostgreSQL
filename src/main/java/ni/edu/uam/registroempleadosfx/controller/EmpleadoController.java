@@ -79,7 +79,7 @@ public class EmpleadoController {
     @FXML
     private TableColumn<Empleado, String> colFechaContratacion;
 
-    private final ObservableList<String> empleados = FXCollections.observableArrayList();
+    private final ObservableList<Empleado> empleados = FXCollections.observableArrayList();
 
 
     @FXML
@@ -122,7 +122,7 @@ public class EmpleadoController {
             return;
         }
         //Consulta  SQL a ejecutar
-        String sql = "INSERT INTO libro (titulo, autor, categoria, precio, stock)" + "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO empleado (nombres, apellidos, cedula, correo, telefono, cargo, departamento, fechaContratacion, estado)" + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try(
                 Connection connection = DatabaseConnection.getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql)

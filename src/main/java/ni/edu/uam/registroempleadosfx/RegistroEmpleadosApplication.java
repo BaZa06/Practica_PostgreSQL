@@ -14,7 +14,7 @@ public class RegistroEmpleadosApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("empleado-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 600);
         scene.getStylesheets().add(
-                Objects.requireNonNull(getClass().getResource("/estilos/estilos.css")).toExternalForm()
+                Objects.requireNonNull(getClass().getResource("/ni/edu/uam/registroempleadosfx/estilos/estilos.css")).toExternalForm()
         );
         stage.setTitle("Registro de empleados");
         stage.setScene(scene);

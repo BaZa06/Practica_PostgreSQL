@@ -3,7 +3,7 @@ package ni.edu.uam.registroempleadosfx.model;
 import java.sql.Date;
 
 public class Empleado {
-    private String id;
+    private int id;
     private String nombres;
     private String apellidos;
     private String cedula;
@@ -18,7 +18,7 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(String id, String nombres, String apellidos, String cedula, String correo, String telefono, String cargo, String departamento, double salario, Date fechaContracion, String estado) {
+    public Empleado(int id, String nombres, String apellidos, String cedula, String correo, String telefono, String cargo, String departamento, double salario, Date fechaContracion, String estado) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -32,11 +32,11 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
