@@ -135,7 +135,7 @@
                     </font>
                 </Label>
 
-                <Button fx:id="btnEmpleadosActivos" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Empleados activos" />
+                <Button fx:id="btnEmpleadosActivos" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta1" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Empleados activos" />
 
                 <Button fx:id="btnAreaTecnologia" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta2" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Area tecnologia" />
 
