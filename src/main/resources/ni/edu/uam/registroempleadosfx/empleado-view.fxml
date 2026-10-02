@@ -135,15 +135,15 @@
                     </font>
                 </Label>
 
-                <Button fx:id="btnEmpleadosActivos" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarEmpleadosActivos" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Empleados activos" />
+                <Button fx:id="btnEmpleadosActivos" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Empleados activos" />
 
-                <Button fx:id="btnAreaTecnologia" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarAreaTecnologia" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Area tecnologia" />
+                <Button fx:id="btnAreaTecnologia" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta2" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Area tecnologia" />
 
-                <Button fx:id="btnSalariosMayores" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarSalariosMayores" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Salarios mayores a 7k" />
+                <Button fx:id="btnSalariosMayores" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta3" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Salarios mayores a 7k" />
 
-                <Button fx:id="btnSalariosAscendente" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarSalariosAscendente" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Salarios ascendente" />
+                <Button fx:id="btnSalariosAscendente" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta4" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Salarios ascendente" />
 
-                <Button fx:id="btnNombresAlfabeticos" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarNombresAlfabeticos" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Nombres alfabeticos" />
+                <Button fx:id="btnNombresAlfabeticos" maxWidth="Infinity" mnemonicParsing="false" onAction="#clickConsulta5" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Nombres alfabeticos" />
             </children>
         </VBox>
     </right>
