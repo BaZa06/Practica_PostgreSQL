@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -15,8 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.geometry.Insets?>
-<BorderPane prefHeight="700.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.registroempleadosfx.controller.EmpleadoController">
+<BorderPane prefHeight="700.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.registroempleadosfx.controller.EmpleadoController">
+
+    <!-- ======================= TÍTULO ======================= -->
     <top>
         <Label text="Registro de Empleados" BorderPane.alignment="CENTER">
             <font>
@@ -28,6 +30,7 @@
         </Label>
     </top>
 
+    <!-- ======================= FORMULARIO + TABLA ======================= -->
     <center>
         <VBox spacing="10.0">
             <padding>
@@ -42,9 +45,15 @@
                         <ColumnConstraints maxWidth="133.3333129882813" minWidth="44.0" prefWidth="66.0" />
                         <ColumnConstraints minWidth="250.0" />
                     </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
 
-
-                    <Label prefHeight="17.0" prefWidth="56.0" text="Nombres:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label text="Nombres:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                     <TextField fx:id="txtNombres" promptText="Nombres del empleado" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
                     <Label text="Apellidos:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
@@ -73,15 +82,7 @@
 
                     <Label text="Estado:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                     <ComboBox fx:id="cmbEstado" prefWidth="250.0" promptText="Seleccione el estado" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-               <rowConstraints>
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-                  <RowConstraints />
-               </rowConstraints>
                 </GridPane>
-
 
                 <HBox spacing="10.0">
                     <padding>
@@ -115,7 +116,6 @@
                         <TableColumn fx:id="colDepartamento" prefWidth="111.3333740234375" text="Departamento" />
                         <TableColumn fx:id="colSalario" minWidth="0.0" prefWidth="78.66668701171875" text="Salario" />
                         <TableColumn fx:id="colFechaContratacion" prefWidth="162.6666259765625" text="Fecha contratación" />
-
                         <TableColumn fx:id="colEstado" prefWidth="80.0" text="Estado" />
                     </columns>
                 </TableView>
@@ -123,4 +123,29 @@
             </children>
         </VBox>
     </center>
+    <right>
+        <VBox alignment="TOP_CENTER" prefWidth="230.0" spacing="15.0" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
+            </padding>
+            <children>
+                <Label text="Consultas:">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+
+                <Button fx:id="btnEmpleadosActivos" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarEmpleadosActivos" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Empleados activos" />
+
+                <Button fx:id="btnAreaTecnologia" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarAreaTecnologia" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Area tecnologia" />
+
+                <Button fx:id="btnSalariosMayores" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarSalariosMayores" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Salarios mayores a 7k" />
+
+                <Button fx:id="btnSalariosAscendente" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarSalariosAscendente" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Salarios ascendente" />
+
+                <Button fx:id="btnNombresAlfabeticos" maxWidth="Infinity" mnemonicParsing="false" onAction="#consultarNombresAlfabeticos" style="-fx-background-color: #CCA297; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Nombres alfabeticos" />
+            </children>
+        </VBox>
+    </right>
+
 </BorderPane>
