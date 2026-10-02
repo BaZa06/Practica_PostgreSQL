@@ -151,32 +151,6 @@ public class EmpleadoController {
         }
     }
 
-    @FXML
-    private void consultarEmpleadosActivos() {
-        cargarEmpleados("SELECT * FROM empleado WHERE estado = 'Activo'");
-    }
-
-    @FXML
-    private void consultarAreaTecnologia() {
-        // En tu ComboBox el departamento de tecnología se llama "Sistemas"
-        cargarEmpleados("SELECT * FROM empleado WHERE departamento = 'Sistemas'");
-    }
-
-    @FXML
-    private void consultarSalariosMayores() {
-        cargarEmpleados("SELECT * FROM empleado WHERE salario > 55000");
-    }
-
-    @FXML
-    private void consultarSalariosAscendente() {
-        cargarEmpleados("SELECT * FROM empleado ORDER BY salario ASC");
-    }
-
-    @FXML
-    private void consultarNombresAlfabeticos() {
-        cargarEmpleados("SELECT * FROM empleado ORDER BY nombres ASC");
-    }
-
     private boolean validarCampos() {
         if (txtNombres.getText().isBlank() || txtApellidos.getText().isBlank()
                 || txtCedula.getText().isBlank() || cmbDepartamento.getValue() == null
@@ -216,4 +190,158 @@ public class EmpleadoController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-}
+
+
+    public void clickConsulta1(ActionEvent actionEvent) {
+        empleados.clear();
+        String sql = "SELECT * FROM empleado WHERE estado = 'Activo'";
+
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()
+        ) {
+            while (resultSet.next()) {
+                Empleado empleado = new Empleado();
+                empleado.setId(resultSet.getInt("id"));
+                empleado.setNombres(resultSet.getString("nombres"));
+                empleado.setApellidos(resultSet.getString("apellidos"));
+                empleado.setCedula(resultSet.getString("cedula"));
+                empleado.setCorreo(resultSet.getString("correo"));
+                empleado.setTelefono(resultSet.getString("telefono"));
+                empleado.setCargo(resultSet.getString("cargo"));
+                empleado.setDepartamento(resultSet.getString("departamento"));
+                empleado.setSalario(resultSet.getDouble("salario"));
+                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setEstado(resultSet.getString("estado"));
+
+                empleados.add(empleado);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
+        }
+
+    public void clickConsulta2(ActionEvent actionEvent){
+        empleados.clear();
+        String sql = "SELECT * FROM empleado WHERE departamento = 'Tecnologia'";
+
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()
+        ) {
+            while (resultSet.next()) {
+                Empleado empleado = new Empleado();
+                empleado.setId(resultSet.getInt("id"));
+                empleado.setNombres(resultSet.getString("nombres"));
+                empleado.setApellidos(resultSet.getString("apellidos"));
+                empleado.setCedula(resultSet.getString("cedula"));
+                empleado.setCorreo(resultSet.getString("correo"));
+                empleado.setTelefono(resultSet.getString("telefono"));
+                empleado.setCargo(resultSet.getString("cargo"));
+                empleado.setDepartamento(resultSet.getString("departamento"));
+                empleado.setSalario(resultSet.getDouble("salario"));
+                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setEstado(resultSet.getString("estado"));
+
+                empleados.add(empleado);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
+        }
+
+    public void clickConsulta3(ActionEvent actionEvent){
+        empleados.clear();
+        String sql = "SELECT * FROM empleado WHERE salario > 55000";
+
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()
+        ) {
+            while (resultSet.next()) {
+                Empleado empleado = new Empleado();
+                empleado.setId(resultSet.getInt("id"));
+                empleado.setNombres(resultSet.getString("nombres"));
+                empleado.setApellidos(resultSet.getString("apellidos"));
+                empleado.setCedula(resultSet.getString("cedula"));
+                empleado.setCorreo(resultSet.getString("correo"));
+                empleado.setTelefono(resultSet.getString("telefono"));
+                empleado.setCargo(resultSet.getString("cargo"));
+                empleado.setDepartamento(resultSet.getString("departamento"));
+                empleado.setSalario(resultSet.getDouble("salario"));
+                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setEstado(resultSet.getString("estado"));
+
+                empleados.add(empleado);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
+        }
+
+    public void clickConsulta4(ActionEvent actionEvent) {
+        empleados.clear();
+        String sql = "SELECT * FROM empleado ORDER BY salario ASC";
+
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()
+        ) {
+            while (resultSet.next()) {
+                Empleado empleado = new Empleado();
+                empleado.setId(resultSet.getInt("id"));
+                empleado.setNombres(resultSet.getString("nombres"));
+                empleado.setApellidos(resultSet.getString("apellidos"));
+                empleado.setCedula(resultSet.getString("cedula"));
+                empleado.setCorreo(resultSet.getString("correo"));
+                empleado.setTelefono(resultSet.getString("telefono"));
+                empleado.setCargo(resultSet.getString("cargo"));
+                empleado.setDepartamento(resultSet.getString("departamento"));
+                empleado.setSalario(resultSet.getDouble("salario"));
+                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setEstado(resultSet.getString("estado"));
+
+                empleados.add(empleado);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
+        }
+
+    public void clickConsulta5(ActionEvent actionEvent) {
+        empleados.clear();
+        String sql = "SELECT * FROM empleado ORDER BY apellidos ASC";
+
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()
+        ) {
+            while (resultSet.next()) {
+                Empleado empleado = new Empleado();
+                empleado.setId(resultSet.getInt("id"));
+                empleado.setNombres(resultSet.getString("nombres"));
+                empleado.setApellidos(resultSet.getString("apellidos"));
+                empleado.setCedula(resultSet.getString("cedula"));
+                empleado.setCorreo(resultSet.getString("correo"));
+                empleado.setTelefono(resultSet.getString("telefono"));
+                empleado.setCargo(resultSet.getString("cargo"));
+                empleado.setDepartamento(resultSet.getString("departamento"));
+                empleado.setSalario(resultSet.getDouble("salario"));
+                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setEstado(resultSet.getString("estado"));
+
+                empleados.add(empleado);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo consultar", ex.getMessage());
+        }
+
+
+
+    }
