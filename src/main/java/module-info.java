@@ -1,6 +1,7 @@
 module ni.edu.uam.registroempleadosfx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens ni.edu.uam.registroempleadosfx to javafx.fxml;
