@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.registroempleadosfx.controller.EmpleadoController">
+    <top>
+        <Label text="Registro de Empleados" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+            <BorderPane.margin>
+                <Insets bottom="15.0" top="15.0" />
+            </BorderPane.margin>
+        </Label>
+    </top>
+
+    <center>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+            </padding>
+            <children>
+
+                <GridPane hgap="10.0" prefHeight="167.0" prefWidth="920.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints maxWidth="221.33334350585938" minWidth="87.3333231608073" prefWidth="126.00001017252605" />
+                        <ColumnConstraints maxWidth="349.33333587646484" minWidth="226.66665649414062" prefWidth="320.6666666666667" />
+                        <ColumnConstraints maxWidth="133.3333129882813" minWidth="44.0" prefWidth="66.0" />
+                        <ColumnConstraints minWidth="250.0" />
+                    </columnConstraints>
+
+
+                    <Label prefHeight="17.0" prefWidth="56.0" text="Nombres:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtNombres" promptText="Nombres del empleado" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <Label text="Apellidos:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtApellidos" promptText="Apellidos del empleado" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                    <Label text="Cédula:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtCedula" promptText="Número de cédula" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <Label text="Correo:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtCorreo" promptText="correo@ejemplo.com" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                    <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtTelefono" promptText="Número de teléfono" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <Label text="Cargo:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtCargo" promptText="Cargo del empleado" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                    <Label text="Departamento:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <ComboBox fx:id="cmbDepartamento" prefHeight="25.0" prefWidth="321.0" promptText="Seleccione el departamento" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <Label text="Salario:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtSalario" promptText="Salario mensual" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+                    <Label text="Fecha de contratación:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <DatePicker fx:id="dpFechaContratacion" prefHeight="25.0" prefWidth="321.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                    <Label text="Estado:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                    <ComboBox fx:id="cmbEstado" prefWidth="250.0" promptText="Seleccione el estado" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+
+
+                <HBox spacing="10.0">
+                    <padding>
+                        <Insets top="10.0" />
+                    </padding>
+                    <children>
+                        <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" text="Guardar" />
+                        <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" />
+                        <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#actualizarTabla" text="Actualizar tabla" />
+                    </children>
+                </HBox>
+
+                <Label text="Empleados registrados">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                </Label>
+
+                <TableView fx:id="tblEmpleados" prefHeight="300.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="colNombres" prefWidth="100.0" text="Nombres" />
+                        <TableColumn fx:id="colApellidos" prefWidth="100.0" text="Apellidos" />
+                        <TableColumn fx:id="colCedula" prefWidth="97.33338928222656" text="Cédula" />
+                        <TableColumn fx:id="colCorreo" prefWidth="100.0" text="Correo" />
+                        <TableColumn fx:id="colTelefono" prefWidth="106.66665649414062" text="Teléfono" />
+                        <TableColumn fx:id="colCargo" prefWidth="105.33331298828125" text="Cargo" />
+                        <TableColumn fx:id="colDepartamento" prefWidth="111.3333740234375" text="Departamento" />
+                        <TableColumn fx:id="colSalario" minWidth="0.0" prefWidth="78.66668701171875" text="Salario" />
+                        <TableColumn fx:id="colFechaContratacion" prefWidth="162.6666259765625" text="Fecha contratación" />
+
+                        <TableColumn fx:id="colEstado" prefWidth="80.0" text="Estado" />
+                    </columns>
+                </TableView>
+
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
