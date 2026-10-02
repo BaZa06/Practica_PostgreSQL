@@ -86,7 +86,7 @@ public class EmpleadoController {
             return;
         }
 
-        String sql = "INSERT INTO empleado (nombres, apellidos, cedula, correo, telefono, cargo, departamento, salario, fechaContratacion, estado) "
+        String sql = "INSERT INTO empleado (nombres, apellidos, cedula, correo, telefono, cargo, departamento, salario, fecha_contratacion, estado) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (
                 Connection connection = DatabaseConnection.getConnection();
@@ -140,7 +140,7 @@ public class EmpleadoController {
                 empleado.setCargo(resultSet.getString("cargo"));
                 empleado.setDepartamento(resultSet.getString("departamento"));
                 empleado.setSalario(resultSet.getDouble("salario"));
-                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setFechaContracion(resultSet.getDate("fecha_contratacion"));
                 empleado.setEstado(resultSet.getString("estado"));
 
                 empleados.add(empleado);
@@ -212,7 +212,7 @@ public class EmpleadoController {
                 empleado.setCargo(resultSet.getString("cargo"));
                 empleado.setDepartamento(resultSet.getString("departamento"));
                 empleado.setSalario(resultSet.getDouble("salario"));
-                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setFechaContracion(resultSet.getDate("fecha_contratacion"));
                 empleado.setEstado(resultSet.getString("estado"));
 
                 empleados.add(empleado);
@@ -243,7 +243,7 @@ public class EmpleadoController {
                 empleado.setCargo(resultSet.getString("cargo"));
                 empleado.setDepartamento(resultSet.getString("departamento"));
                 empleado.setSalario(resultSet.getDouble("salario"));
-                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setFechaContracion(resultSet.getDate("fecha_contratacion"));
                 empleado.setEstado(resultSet.getString("estado"));
 
                 empleados.add(empleado);
@@ -274,7 +274,7 @@ public class EmpleadoController {
                 empleado.setCargo(resultSet.getString("cargo"));
                 empleado.setDepartamento(resultSet.getString("departamento"));
                 empleado.setSalario(resultSet.getDouble("salario"));
-                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setFechaContracion(resultSet.getDate("fecha_contratacion"));
                 empleado.setEstado(resultSet.getString("estado"));
 
                 empleados.add(empleado);
@@ -305,7 +305,7 @@ public class EmpleadoController {
                 empleado.setCargo(resultSet.getString("cargo"));
                 empleado.setDepartamento(resultSet.getString("departamento"));
                 empleado.setSalario(resultSet.getDouble("salario"));
-                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setFechaContracion(resultSet.getDate("fecha_contratacion"));
                 empleado.setEstado(resultSet.getString("estado"));
 
                 empleados.add(empleado);
@@ -336,7 +336,7 @@ public class EmpleadoController {
                 empleado.setCargo(resultSet.getString("cargo"));
                 empleado.setDepartamento(resultSet.getString("departamento"));
                 empleado.setSalario(resultSet.getDouble("salario"));
-                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
+                empleado.setFechaContracion(resultSet.getDate("fecha_contratacion"));
                 empleado.setEstado(resultSet.getString("estado"));
 
                 empleados.add(empleado);
