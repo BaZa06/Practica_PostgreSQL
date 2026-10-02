@@ -168,7 +168,7 @@ public class EmpleadoController {
                 empleado.setCargo(resultSet.getString("cargo"));
                 empleado.setDepartamento(resultSet.getString("departamento"));
                 empleado.setSalario(resultSet.getDouble("salario"));
-                empleado.setFechaContratacion(resultSet.getDate("fechaContratacion"));
+                empleado.setFechaContracion(resultSet.getDate("fechaContratacion"));
                 empleado.setEstado(resultSet.getString("estado"));
 
                 empleados.add(empleado);

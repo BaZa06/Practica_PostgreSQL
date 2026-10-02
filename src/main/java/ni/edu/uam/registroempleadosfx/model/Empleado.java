@@ -1,6 +1,6 @@
 package ni.edu.uam.registroempleadosfx.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class Empleado {
     private String id;
@@ -12,13 +12,13 @@ public class Empleado {
     private String cargo;
     private String departamento;
     private double salario;
-    private LocalDate fechaContracion;
+    private Date fechaContracion;
     private String estado;
 
     public Empleado() {
     }
 
-    public Empleado(String id, String nombres, String apellidos, String cedula, String correo, String telefono, String cargo, String departamento, double salario, LocalDate fechaContracion, String estado) {
+    public Empleado(String id, String nombres, String apellidos, String cedula, String correo, String telefono, String cargo, String departamento, double salario, Date fechaContracion, String estado) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -104,11 +104,11 @@ public class Empleado {
         this.salario = salario;
     }
 
-    public LocalDate getFechaContracion() {
+    public Date getFechaContracion() {
         return fechaContracion;
     }
 
-    public void setFechaContracion(LocalDate fechaContracion) {
+    public void setFechaContracion(Date fechaContracion) {
         this.fechaContracion = fechaContracion;
     }
 
