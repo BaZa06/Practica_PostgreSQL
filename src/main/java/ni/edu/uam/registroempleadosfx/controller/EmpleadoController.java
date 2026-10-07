@@ -32,6 +32,9 @@ public class EmpleadoController {
     @FXML private Button btnSalariosMayores;
     @FXML private Button btnSalariosAscendente;
     @FXML private Button btnNombresAlfabeticos;
+    @FXML private Button btnActualizar;
+    @FXML private Button btnActualizarRegistro;
+    @FXML private Button btnEliminar;
 
 
     @FXML private TableView<Empleado> tblEmpleados;
@@ -54,6 +57,13 @@ public class EmpleadoController {
         configurarComboboxEstado();
         configurarTableView();
         tblEmpleados.setItems(empleados);
+
+        tblEmpleados.getSelectionModel().selectedItemProperty().addListener(
+                (obs, anterior, seleccionado) -> {
+                    if (seleccionado != null) {
+                        llenarFormulario(seleccionado);
+                    }
+                });
     }
 
     private void configurarComboboxDepartamento() {
@@ -112,6 +122,101 @@ public class EmpleadoController {
         } catch (SQLException ex) {
             ex.printStackTrace();
             mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo guardar", ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void actualizarRegistro() {
+        Empleado seleccionado = tblEmpleados.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            mostrarAlerta(Alert.AlertType.WARNING, "Atención",
+                    "Sin selección", "Selecciona un empleado de la tabla primero.");
+            return;
+        }
+        if (!validarCampos()) {
+            return;
+        }
+
+        String sql = "UPDATE empleado SET nombres = ?, apellidos = ?, cedula = ?, correo = ?, telefono = ?, "
+                + "cargo = ?, departamento = ?, salario = ?, fecha_contratacion = ?, estado = ? WHERE id = ?";
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setString(1, txtNombres.getText());
+            statement.setString(2, txtApellidos.getText());
+            statement.setString(3, txtCedula.getText());
+            statement.setString(4, txtCorreo.getText());
+            statement.setString(5, txtTelefono.getText());
+            statement.setString(6, txtCargo.getText());
+            statement.setString(7, cmbDepartamento.getValue());
+            statement.setDouble(8, Double.parseDouble(txtSalario.getText().trim()));
+            statement.setDate(9, java.sql.Date.valueOf(dpFechaContratacion.getValue()));
+            statement.setString(10, cmbEstado.getValue());
+            statement.setInt(11, seleccionado.getId());
+
+            statement.executeUpdate();
+
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Éxito",
+                    "Registro actualizado", "El empleado se actualizó correctamente.");
+            limpiar(null);
+            actualizarTabla();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo actualizar", ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void eliminar() {
+        Empleado seleccionado = tblEmpleados.getSelectionModel().getSelectedItem();
+        if (seleccionado == null) {
+            mostrarAlerta(Alert.AlertType.WARNING, "Atención",
+                    "Sin selección", "Selecciona un empleado de la tabla primero.");
+            return;
+        }
+
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Confirmar");
+        confirmacion.setHeaderText("¿Eliminar este empleado?");
+        confirmacion.setContentText(seleccionado.getNombres() + " " + seleccionado.getApellidos());
+
+        if (confirmacion.showAndWait().orElse(ButtonType.CANCEL) != ButtonType.OK) {
+            return;
+        }
+
+        String sql = "DELETE FROM empleado WHERE id = ?";
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setInt(1, seleccionado.getId());
+            statement.executeUpdate();
+
+            limpiar(null);
+            actualizarTabla();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            mostrarAlerta(Alert.AlertType.ERROR, "Error", "No se pudo eliminar", ex.getMessage());
+        }
+    }
+
+    private void llenarFormulario(Empleado e) {
+        txtNombres.setText(e.getNombres());
+        txtApellidos.setText(e.getApellidos());
+        txtCedula.setText(e.getCedula());
+        txtCorreo.setText(e.getCorreo());
+        txtTelefono.setText(e.getTelefono());
+        txtCargo.setText(e.getCargo());
+        cmbDepartamento.setValue(e.getDepartamento());
+        txtSalario.setText(String.valueOf(e.getSalario()));
+        cmbEstado.setValue(e.getEstado());
+
+        if (e.getFechaContracion() != null) {
+            dpFechaContratacion.setValue(
+                    new java.sql.Date(e.getFechaContracion().getTime()).toLocalDate());
+        } else {
+            dpFechaContratacion.setValue(null);
         }
     }
 
